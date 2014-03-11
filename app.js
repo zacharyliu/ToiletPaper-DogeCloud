@@ -3,6 +3,25 @@ var address,
     bal_old=0,
     delta = 0;
 
+var app = require('http').createServer(handler)
+    , io = require('socket.io').listen(app)
+    , fs = require('fs')
+
+app.listen(80);
+
+function handler (req, res) {
+    fs.readFile(__dirname + '/index.html',
+        function (err, data) {
+            if (err) {
+                res.writeHead(500);
+                return res.end('Error loading index.html');
+            }
+
+            res.writeHead(200);
+            res.end(data);
+        });
+}
+
 exports.init = function() {
     dogecoin.auth(app.get('dogecoinrpc'),app.get('8s7vTQestoRnuahx2dxNtkDMYEAXmHeGgJuqGwYMQzyh'))//.set('host', 'localhost').set({port:22555})
 
@@ -52,7 +71,6 @@ getbalance = function(init, callback) {
 
 updatecredit = function() {
     if (delta > 0){
-        var add_sheets = delta;
-        //meow meow add more sheets
+        io.sockets.emit('updatecredit', {delta: delta});
     }
 }
