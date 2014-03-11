@@ -77,3 +77,5 @@ updatecredit = function() {
         console.log('updatecredit', 'no change');
     }
 }
+
+exports.init();
