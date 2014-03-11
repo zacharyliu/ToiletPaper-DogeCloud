@@ -55,10 +55,12 @@ getbalance = function(init, callback) {
     if (err)
         return err;
 
+    console.log(result);
+
     //empty accounts have a composite object as balance.
     if (typeof result === 'number')
         result = result.result;
-    console.log(result);
+
     if (init)
         bal_old = result;
     else {
