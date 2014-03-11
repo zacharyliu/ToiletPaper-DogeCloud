@@ -23,7 +23,7 @@ function handler (req, res) {
 }
 
 exports.init = function() {
-    dogecoin.auth(app.get('dogecoinrpc'),app.get('8s7vTQestoRnuahx2dxNtkDMYEAXmHeGgJuqGwYMQzyh'))//.set('host', 'localhost').set({port:22555})
+    dogecoin.auth('dogecoinrpc','8s7vTQestoRnuahx2dxNtkDMYEAXmHeGgJuqGwYMQzyh'); //.set('host', 'localhost').set({port:22555})
 
     //retrieve the address or generate a new address
     dogecoin.getAddressesByAccount("toiletpaper", function(err, result) {
