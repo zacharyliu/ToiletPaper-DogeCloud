@@ -44,7 +44,7 @@ exports.init = function() {
         console.log("address to broadcast: " + address);
     })
     getbalance(true); //get the initial balance
-    setInterval(function(){getbalance(false,updatecredit)}, 15000);
+    setInterval(function(){getbalance(false,updatecredit)}, 5000);
 }
 
 //retrieve balance
