@@ -65,7 +65,7 @@ getbalance = function(init, callback) {
         delta = result - bal_old;
         bal_old = result;
     }
-    return callback;
+    callback();
     })
 }
 
