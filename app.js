@@ -50,7 +50,7 @@ exports.init = function() {
 //retrieve balance
 getbalance = function(init, callback) {
     //retrieve balance
-    dogecoin.getBalance(function(err, result) {
+    dogecoin.getBalance("toiletpaper", function(err, result) {
 
     if (err)
         return err;
