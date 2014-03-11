@@ -71,6 +71,9 @@ getbalance = function(init, callback) {
 
 updatecredit = function() {
     if (delta > 0){
+        console.log('updatecredit', 'delta:', delta);
         io.sockets.emit('updatecredit', {delta: delta});
+    } else {
+        console.log('updatecredit', 'no change');
     }
 }
