@@ -50,7 +50,7 @@ exports.init = function() {
 //retrieve balance
 getbalance = function(init, callback) {
     //retrieve balance
-    dogecoin.getBalance("toiletpaper", function(err, result) {
+    dogecoin.getBalance("toiletpaper", {'minconf': 0}, function(err, result) {
 
     if (err)
         return err;
@@ -58,7 +58,7 @@ getbalance = function(init, callback) {
     //empty accounts have a composite object as balance.
     if (typeof result === 'number')
         result = result.result;
-
+    console.log(result);
     if (init)
         bal_old = result;
     else {
