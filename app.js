@@ -9,6 +9,8 @@ var app = require('http').createServer(handler)
 
 app.listen(process.env.PORT || 3000);
 
+var config = require('./config');
+
 function handler (req, res) {
     fs.readFile(__dirname + '/index.html',
         function (err, data) {
@@ -23,7 +25,7 @@ function handler (req, res) {
 }
 
 exports.init = function() {
-    dogecoin.auth('dogecoinrpc','8s7vTQestoRnuahx2dxNtkDMYEAXmHeGgJuqGwYMQzyh'); //.set('host', 'localhost').set({port:22555})
+    dogecoin.auth(config.username, config.password); //.set('host', 'localhost').set({port:22555})
 
     //retrieve the address or generate a new address
     dogecoin.getAddressesByAccount("toiletpaper", function(err, result) {
